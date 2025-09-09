@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Risk Prediction Model Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-4xl mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-6 text-center">Patient Risk Prediction Model</h1>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">🔎 Introduction</h2>
+      <p>
+        This demo presents a model that predicts a patient’s risk of health deterioration within the next 90 days,
+        using health data from the past 30–180 days (vitals, lab results, medications, and medical events).
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">⚙️ Approach</h2>
+      <p>
+        Instead of analyzing every day individually, we summarize features such as average blood pressure, recent weight
+        changes, lab trends, and number of ER visits. These features are fed into a <span class="font-semibold">Gradient Boosting model</span>,
+        which is powerful yet interpretable for clinical applications.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">📊 Metrics</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>AUROC</strong>: Measures how well the model separates high- vs low-risk patients.</li>
+        <li><strong>AUPRC</strong>: Focuses on identifying true high-risk patients among rare events.</li>
+        <li><strong>Calibration</strong>: Ensures predicted probabilities match observed outcomes.</li>
+        <li><strong>Confusion Matrix</strong>: Simple breakdown of correct and incorrect predictions.</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-3">🌍 Factors</h2>
+      <h3 class="text-xl font-medium mb-2">Global Factors</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Frequent hospital visits → higher risk.</li>
+        <li>Rapid weight gain → possible fluid buildup (heart/kidney issues).</li>
+        <li>Declining kidney function or uncontrolled blood sugar → higher risk.</li>
+        <li>Stable vitals and regular medication → lower risk.</li>
+      </ul>
+
+      <h3 class="text-xl font-medium mt-4 mb-2">Local Factors</h3>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Patient A: High risk due to rising blood pressure, weight gain, worsening kidney labs.</li>
+        <li>Patient B: Low risk due to stable vitals, no lab declines, no hospital visits.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-3">💡 Example Output</h2>
+      <p class="italic">
+        “Patient A has a 72% chance of deterioration within 90 days.”
+      </p>
+    </section>
+  </div>
+</body>
+</html>
